@@ -94,6 +94,7 @@ def display_menu(hostname):
     print()
     print(f'{Colors.BOLD}{Colors.RED}┌─ ATTACK & EXPLOIT ─────────────────────────────────────────────┐{Colors.RESET}')
     print(f'{Colors.RED}│{Colors.RESET}  {Colors.BOLD}2.{Colors.RESET} WiFi DDoS Attacker    {Colors.DIM}Launch distributed denial{Colors.RESET}{Colors.RED}            |{Colors.RESET}')
+    print(f'{Colors.RED}|{Colors.RESET}  {Colors.BOLD}7.{Colors.RESET} SMB website           {Colors.DIM}Work in progress{Colors.RESET}{Colors.RED}                     |{Colors.RESET}')
     print(f'{Colors.RED}└────────────────────────────────────────────────────────────────┘{Colors.RESET}')
     
     print()
@@ -103,7 +104,7 @@ def display_menu(hostname):
     
     print()
     print(f'{Colors.BOLD}{Colors.YELLOW}┌─ SYSTEM ───────────────────────────────────────────────────────┐{Colors.RESET}')
-    print(f'{Colors.YELLOW}│{Colors.RESET}  {Colors.BOLD}7.{Colors.RESET} Exit                  {Colors.DIM}Close the application{Colors.RESET}{Colors.YELLOW}                |{Colors.RESET}')
+    print(f'{Colors.YELLOW}│{Colors.RESET}  {Colors.BOLD}8.{Colors.RESET} Exit                  {Colors.DIM}Close the application{Colors.RESET}{Colors.YELLOW}                |{Colors.RESET}')
     print(f'{Colors.YELLOW}└────────────────────────────────────────────────────────────────┘{Colors.RESET}')
     print()
 
@@ -130,10 +131,10 @@ def execute_option(choice):
     
     option_name, script = valid_options[choice]
     
-    if choice == "7":  # Exit
+    if choice == "8":  # Exit
         print_box(f"Exiting MuitTool v2.0 - Goodbye! 👋", Colors.YELLOW)
         print()
-        sys.exit(0)
+        exit()
     elif choice == "5":  # Password Manager
         print(f'{Colors.BLUE}[→] Launching Password Manager...{Colors.RESET}\n')
         loading_animation(0.5)
@@ -159,6 +160,10 @@ def execute_option(choice):
         print(f'{Colors.BLUE}[→] Launching AV_Port Scanner...{Colors.RESET}\n')
         loading_animation(0.5)
         os.system("sudo python AV_port.py")
+    elif choice == '7':
+        print(f'{Colors.BLUE}[→] Launching SQL...{Colors.RESET}\n')
+        loading_animation(.5)
+        os.system('sudo python SQL.py')
     elif script:  # External script
         try:
             print(f'\n{Colors.BLUE}[→] Launching {option_name}...{Colors.RESET}\n')
